@@ -1,10 +1,12 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, qApp, QDesktopWidget
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QDate, Qt, QTime
 
 class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.date = QDate.currentDate()
         self.initUI()
     
     def initUI(self):
@@ -14,8 +16,8 @@ class MyApp(QMainWindow):
         exitAction.triggered.connect(qApp.quit) # 동작 설정
 
         # statusBar()는 QWidget에는 없고 QMainWindow에만 있다.
-        self.statusBar().showMessage("Ready")   # 객체 생성 및 처음 나오는 text설정
-        
+        self.statusBar().showMessage(self.date.toString(Qt.DefaultLocaleLongDate))   # 객체 생성 및 처음 나오는 text설정
+
         self.toolbar = self.addToolBar('Exit')  # 툴바 생성
         self.toolbar.addAction(exitAction)  # 툴바에 동작 추가
 
