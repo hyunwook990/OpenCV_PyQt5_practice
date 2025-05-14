@@ -1,1 +1,1 @@
-import practice_1
+import QWidget

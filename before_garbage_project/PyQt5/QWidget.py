@@ -7,7 +7,7 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.initUI()
+        self.initUI()   # initUI 함수를 실행, () : 함수를 실행하겠다 라는 의미
     
     def initUI(self):
         # 툴팁 생성 (모든 버튼에 툴팁 생성)
@@ -32,7 +32,7 @@ class MyApp(QWidget):
 
 # __name__ : 현재 모듈의 이름이 저장되는 변수
 # 다른 파일에서 이 파일을 import해서 실행하려면 파일명을 넣어주면 된다.
-# if __name__ == 'practice_1':
+# if __name__ == 'QWidget':
 #     # 객체 생성
 #     app = QApplication(sys.argv)
 #     ex = MyApp()
