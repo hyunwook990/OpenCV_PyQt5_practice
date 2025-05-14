@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, qApp, QDesktopWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, qApp, QDesktopWidget, QLabel, QVBoxLayout, QWidget
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QDate, Qt, QTime
 
@@ -10,6 +10,42 @@ class MyApp(QMainWindow):
         self.initUI()
     
     def initUI(self):
+
+        lbl_red = QLabel('Red')
+        lbl_green = QLabel('Green')
+        lbl_blue = QLabel('Blue')
+
+        lbl_red.setStyleSheet(
+            "color : red;"
+            "border-style: solid;"
+            "border-width: 2px;"
+            "border-color: #FA8072;"
+            "border-radius: 3px"
+        )
+        lbl_green.setStyleSheet(
+            "color : green;"
+            "background-color: #7FFFD4;"
+        )
+        lbl_blue.setStyleSheet(
+            "color : blue;"
+            "background-color: #87CEFA;"
+            "border-style: dashed;"
+            "border-width: 3px;"
+            "border-color: #1E90FF"
+        )
+
+        vbox = QVBoxLayout()
+        vbox.addWidget(lbl_red)
+        vbox.addWidget(lbl_green)
+        vbox.addWidget(lbl_blue)
+
+        # QMainWindow()는 자체적으로 레이아웃을 설정할 수 없기에 setLayout()을 사용하지 못함
+        # QWidget()을 통해서 setLayout을 적용,
+        # setCentralWidget을 통해서 중앙 위젯으로 지정.
+        widget = QWidget()
+        widget.setLayout(vbox)
+        self.setCentralWidget(widget)
+
         exitAction = QAction(QIcon('exit.png'), 'Exit', self)   # 객체 생성
         exitAction.setShortcut('Ctrl+Q')    # 단축키 설정
         exitAction.setStatusTip('Exit application') # statusBar에 표시할 텍스트
