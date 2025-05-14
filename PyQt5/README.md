@@ -1,6 +1,7 @@
 참고: https://wikidocs.net/21853
 
 # 대략적인 구조
+```markdown
 QMainWindow
 ├── MenuBar (옵션)
 ├── ToolBar (옵션)
@@ -11,3 +12,4 @@ QMainWindow
         ├── QPushButton
         ├── QLineEdit
         └── ...
+```
