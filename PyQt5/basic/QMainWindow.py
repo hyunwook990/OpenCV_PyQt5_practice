@@ -54,8 +54,15 @@ class MyApp(QMainWindow):
         # statusBar()는 QWidget에는 없고 QMainWindow에만 있다.
         self.statusBar().showMessage(self.date.toString(Qt.DefaultLocaleLongDate))   # 객체 생성 및 처음 나오는 text설정
 
+        self.statusBar()    # statusBar 생성
+
         self.toolbar = self.addToolBar('Exit')  # 툴바 생성
         self.toolbar.addAction(exitAction)  # 툴바에 동작 추가
+
+        menubar = self.menuBar()
+        menubar.setNativeMenuBar(False)
+        filemenu = menubar.addMenu("&FIle")
+        filemenu.addAction(exitAction)
 
         self.setWindowTitle("MyWindow")
         # self.setGeometry(300, 300, 400, 200)
