@@ -20,6 +20,8 @@ class PracticeApp(QMainWindow):
         self.image = cv2.imread("study\\data\\bom.jpg", cv2.IMREAD_COLOR)
         self.pixmap = QPixmap("study\\data\\bom.jpg")
         self.label = QLabel()
+        self.label.setPixmap(self.pixmap)
+        self.label.hide()
 
         self.grid = QGridLayout()
         self.grid.addWidget(QLabel("이미지를 새 창에 띄우기: "), 0, 0)
@@ -44,7 +46,7 @@ class PracticeApp(QMainWindow):
     def this_window(self):
         self.btn2_temp = not self.btn2_temp
         if self.btn2_temp:
-            self.label.setPixmap(self.pixmap)
+            self.label.show()
         else:
             self.label.hide()
 
