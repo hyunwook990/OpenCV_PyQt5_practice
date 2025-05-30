@@ -20,6 +20,7 @@ class PracticeApp(QMainWindow):
         # image 불러오기
         self.image = cv2.imread("study\\data\\bom.jpg", cv2.IMREAD_COLOR)
         self.pixmap = QPixmap("study\\data\\bom.jpg")
+        self.pixmap = self.pixmap.scaled(530, 707, Qt.KeepAspectRatio)
         self.label = QLabel()
         self.label.setPixmap(self.pixmap)
         self.label.hide()
